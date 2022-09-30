@@ -1,6 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using csharp_ecommerce_db;
+using Microsoft.EntityFrameworkCore;
 
 Console.WriteLine("Benvenuto");
+
+using (Ecommerce db = new Ecommerce())
+{
+    Product product = new Product
+    {
+        Name = "Chitarra",
+        Description = "ciao",
+        Price = 199.99,
+    };
+    db.Products.Add(product);
+    db.SaveChanges();
+}
 
 namespace csharp_ecommerce_db
 {
