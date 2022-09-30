@@ -37,7 +37,17 @@ using (Ecommerce db = new Ecommerce())
     db.Products.Add(chitarra);
     db.Products.Add(batteria);
     db.SaveChanges();
+
+    // Read
+    List<Product> products = db.Products.OrderBy(product => product.Name).ToList<Product>();
+
+    // Search prodotto
+    Product prodottoBatteria = db.Products.Where(product => product.Name == "Batteria Pearl").First();
+
+    Console.WriteLine("Descrizione del prodotto cercato: "+prodottoBatteria.Description);
 }
+
+
 
 namespace csharp_ecommerce_db
 {
