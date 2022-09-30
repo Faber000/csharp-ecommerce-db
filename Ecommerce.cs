@@ -5,13 +5,37 @@ Console.WriteLine("Benvenuto");
 
 using (Ecommerce db = new Ecommerce())
 {
-    Product product = new Product
+    Product chitarra = new Product
     {
         Name = "Chitarra",
         Description = "ciao",
         Price = 199.99,
     };
-    db.Products.Add(product);
+
+    Product batteria = new Product
+    {
+        Name = "Batteria Pearl",
+        Description = "batteria super figa stratosferica",
+        Price = 1999.99,
+    };
+
+    Employee employee = new Employee
+    {
+        Name = "Mario",
+        Surname = "Rossi",
+        Level = "impiegato"
+    };
+
+    Customer customer = new Customer
+    {
+        Name = "Fabio",
+        Surname = "Moro",
+        Email = "fabio.moro@gmail.com",
+    };
+    db.Employees.Add(employee);
+    db.Customers.Add(customer);
+    db.Products.Add(chitarra);
+    db.Products.Add(batteria);
     db.SaveChanges();
 }
 
